@@ -67,5 +67,18 @@ namespace LoadDistribution
                 }
             }
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            if (dgvList.SelectedRows.Count == 1)
+            {
+                Teacher teacher = (dgvList.SelectedRows[0].DataBoundItem as Teacher);
+                if (MessageBox.Show("Действительно удалить?") == DialogResult.OK)
+                {
+                    teacherRepository.DeleteTeacher(teacher);
+                    LoadTeacherList();
+                }
+            }
+        }
     }
 }
